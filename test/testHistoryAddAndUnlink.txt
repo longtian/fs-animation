@@ -1,0 +1,4 @@
+add /a/b
+add /a/c
+unlink /a/b
+unlink /a/c
