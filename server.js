@@ -16,8 +16,9 @@ var wss = new WebSocketServer({
   server: server
 });
 
-var watcher = chokidar.watch('/tmp', {
-  ignored: [/[\/\\]\./],
+var watcher = chokidar.watch('/var/lib/docker/', {
+  ignored: [/[\/\\]\./,/docker\/aufs/],
+  ignoreInitial: true
 });
 
 var h = new History(watcher);

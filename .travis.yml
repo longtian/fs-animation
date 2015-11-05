@@ -4,4 +4,4 @@ node_js:
 - "0.12"
 - "4"
 - "5"
-script: "npm test"
+script: "npm test-cover"
