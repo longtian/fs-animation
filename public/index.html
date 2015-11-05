@@ -3,8 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>fs-animation</title>
+    <style type="text/css">
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #preview {
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        .node {
+            background: #ccc;
+            display: inline-block;
+            height: 1em;
+        }
+
+        .node:hover {
+            background: #fff;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            function draw(id) {
+                $.getJSON('/tree/' + id, function (t) {
+                    $('#tree').text(JSON.stringify(t, null, 2));
+                });
+            }
+
+            function up() {
+                draw('latest');
+                $.getJSON('/tree/size', function (size) {
+                    var html = "";
+                    wi = 100 / size;
+                    for (var i = 0; i < size; i++) {
+                        html += "<a class='node' data-index=" + i + " style='width:" + wi + "%'></a>"
+                    }
+                    $('#preview').html(html);
+                })
+            }
+
+            $("#preview").on('mouseover', '.node', function () {
+                draw($(this).data('index'));
+            })
+
+            var ws = new WebSocket('ws://' + location.host);
+            ws.addEventListener('message', up);
+            up();
+        })
+
+    </script>
 </head>
 <body>
-
+<div id="preview"></div>
+<pre id="tree"></pre>
 </body>
 </html>
