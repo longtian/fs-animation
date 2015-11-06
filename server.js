@@ -82,3 +82,8 @@ server.listen(options.port, options.hostname, function () {
   var address = server.address();
   log.warn('Listening on http://%s:%d', address.address, address.port);
 });
+
+process.on('SIGINT', function () {
+  log.warn('Got SIGINT, exiting');
+  process.exit();
+});

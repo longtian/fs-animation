@@ -59,9 +59,17 @@ Option    | LogLevel
 npm test
 ```
 
+## Docker usage
+
+```
+sudo docker run -P -v=/tmp:/watched:ro wyvernnot/fs-animation 
+```
+
 ## Example - Watch docker directory
 
 ![](doc/screenshot.png)
+
+
 
 ## License
 
