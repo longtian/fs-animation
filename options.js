@@ -35,6 +35,14 @@ yargs
 yargs
   .default('ignore', null);
 
+
+yargs
+  .default('throttle', 100);
+
+yargs
+  .count('v')
+  .alias('v', 'verbose');
+
 var argv = yargs.argv;
 
 if (argv._.length === 0) {
@@ -52,5 +60,9 @@ if (argv.ignoredDotFiles) {
     argv.ignore = [dotFilesRegExp];
   }
 }
+
+// @link https://www.npmjs.com/package/bunyan#levels
+var LOG_LEVEL = ['warn', 'info', 'debug', 'trace'];
+argv.logLevel = process.env.LOG_LEVEL || LOG_LEVEL[argv.v] || 'warn';
 
 module.exports = argv;
