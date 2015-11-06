@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Realitime file system change animation which can be played back too.",
   "main": "index.js",
+  "bin": {
+    "fs-animation": "./bin/fs-animation"
+  },
   "scripts": {
     "test-cover": "node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R dot && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test": "node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha"
@@ -27,7 +30,8 @@
     "chokidar": "^1.2.0",
     "express": "^4.13.3",
     "immutable": "^3.7.5",
-    "ws": "^0.8.0"
+    "ws": "^0.8.0",
+    "yargs": "^3.29.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.4",

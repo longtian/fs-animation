@@ -4,13 +4,38 @@
 
 Realitime file system change animation which can also be played back. Built on [Immutable.JS](https://github.com/facebook/immutable-js/)
 
-## Usage 
+
+## Installation
 
 ```sh
-npm start
+npm install fs-animation -g
 ```
 
-## Test
+## Usage 
+
+```
+fs-animation
+```
+
+```sh
+fs-animation /tmp/a /tmp/b
+```
+
+## Options
+
+```sh
+fs-animation -h
+```
+
+Options           |     Default     |     Description
+------------------|-----------------|------------------
+hostname          | 127.0.0.1       | Listening hostname
+ignoreInitial     | true            | Existing files will not trigger evnets
+ignoredDotFiles   | true            | Ignore file folds starts with dot, eg: .git
+ignore            | null            | Directories to ignore
+port              | 8001            | Listening port
+
+## Development and Testing
 
 ```sh
 npm test
