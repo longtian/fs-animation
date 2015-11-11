@@ -1,6 +1,6 @@
 {
   "name": "fs-animation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Realitime file system change animation which can be played back too.",
   "main": "index.js",
   "bin": {
