@@ -4,41 +4,41 @@
 
 $(function () {
 
+  var totalSize = 0;
+
   /**
-   * draw specified tree with index
+   * draw specified tree with index number
    *
-   * @param id
+   * @throttled 80ms
+   * @param id {number}
    */
-  function draw(id) {
-    $.getJSON('/tree/' + id, function (t) {
+  var draw = _.throttle(function (index) {
+    $.getJSON('/tree/' + index, function (t) {
+
+      if (index === 'latest') {
+        $('#index').text(totalSize);
+      } else {
+        $('#index').text(index + 1);
+      }
+
       $('#tree').text(JSON.stringify(t, null, 2));
     });
-  }
+  }, 80);
 
-  /**
-   * update preview
-   */
-  function drawPreview() {
-    $.getJSON('/tree/size', function (size) {
-      var html = "";
-      wi = 100 / size;
-      for (var i = 0; i < size; i++) {
-        html += "<a class='node' data-index=" + i + " style='width:" + wi + "%'></a>"
-      }
-      $('#preview').html(html);
-    });
-  }
-
-  $("#preview").on('mouseover', '.node', function () {
-    draw($(this).data('index'));
+  $("#preview").on('mousemove', function (e) {
+    var index = Math.floor(totalSize * e.offsetX / $(window).width());
+    draw(index);
   });
 
   /**
    * socket onmessage handler
    */
-  function onmessage() {
+  function onmessage(e) {
+    if (e) {
+      totalSize = parseInt(e.data);
+      $('#totalSize').text(totalSize);
+    }
     draw('latest');
-    drawPreview();
   }
 
   var ws = new WebSocket('ws://' + location.host);

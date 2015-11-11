@@ -39,10 +39,15 @@ watcher.on('all', function (event, path) {
   });
 });
 
+
+wss.on('connection', function (client) {
+  client.send('' + history.history.length);
+});
+
 var notifyClients = _.throttle(function () {
   log.info('broadcasting to clients');
   wss.clients.forEach(function each(client) {
-    client.send('update');
+    client.send('' + history.history.length);
   });
 }, options.throttle);
 
@@ -74,7 +79,13 @@ app.get('/tree/history', function (req, res) {
 });
 
 app.get('/tree/:id', function (req, res) {
-  res.json(history.history[req.params.id].toJSON());
+  var id = parseInt(req.params.id);
+  if (id >= 0 && id < history.history.length) {
+    res.json(history.history[req.params.id].toJSON());
+  } else {
+    res.statusCode = 404;
+    res.end();
+  }
 });
 
 server.on('request', app);
