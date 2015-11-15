@@ -61,11 +61,24 @@ npm test
 
 ## Docker usage
 
-```
+```sh
 sudo docker run -P -v=/tmp:/watched:ro wyvernnot/fs-animation 
 ```
 
-## Example - Watch docker directory
+## Example 1 - NPM install progress behind scenes
+
+```sh
+fs-animation --ignoredDotFiles false ~/.npm /tmp -v
+```
+
+```sh
+cd /tmp
+npm install debug
+```
+
+![record](doc/record.gif)
+
+## Example 2 - Watch docker directory
 
 ![](doc/screenshot.png)
 
