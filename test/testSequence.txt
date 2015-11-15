@@ -1,4 +1,4 @@
-add /a/b
-add /a/c
-add /a
+add /a/b 1
+add /a/c -1
+add /a -1
 donothing /a/v

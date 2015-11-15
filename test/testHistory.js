@@ -14,13 +14,13 @@ describe('History', function () {
     watcher.on('end', function () {
       deepEqual(h.history[0].toJSON(), {
         "a": {
-          "b": {}
+          "b": 1
         }
       });
       deepEqual(h.current.toJSON(), {
         "a": {
-          "b": {},
-          "c": {}
+          "b": 1,
+          "c": 1
         }
       });
       done();
@@ -33,8 +33,8 @@ describe('History', function () {
     watcher.on('end', function () {
       deepEqual(h.history[1].toJSON(), {
         "a": {
-          "b": {},
-          "c": {}
+          "b": 1,
+          "c": 1
         }
       });
       deepEqual(h.current.toJSON(), {

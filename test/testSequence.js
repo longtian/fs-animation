@@ -14,12 +14,12 @@ describe('History', function () {
     watcher.on('end', function () {
       deepEqual(h.history[0].toJSON(), {
         "a": {
-          "b": {}
+          "b": 1
         }
       });
       deepEqual(h.current.toJSON(), {
         "a": {
-          "b": {},
+          "b": 1,
           "c": {}
         }
       });
