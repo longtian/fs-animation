@@ -1,10 +1,10 @@
 # fs-animation
-![](https://img.shields.io/travis/wyvernnot/fs-animation.svg)
-![](https://img.shields.io/npm/v/fs-animation.svg)
-![](https://img.shields.io/coveralls/wyvernnot/fs-animation.svg)
-![](https://img.shields.io/npm/dm/fs-animation.svg)
-![](https://img.shields.io/npm/l/fs-animation.svg)
-![](https://img.shields.io/docker/pulls/wyvernnot/fs-animation.svg)
+[![](https://img.shields.io/travis/wyvernnot/fs-animation.svg)](https://travis-ci.org/wyvernnot/fs-animation)
+[![](https://img.shields.io/npm/v/fs-animation.svg)](https://www.npmjs.com/package/fs-animation)
+[![](https://img.shields.io/coveralls/wyvernnot/fs-animation.svg)](https://coveralls.io/github/wyvernnot/fs-animation)
+[![](https://img.shields.io/npm/dm/fs-animation.svg)](http://npm-stat.com/charts.html?package=fs-animation)
+[![](https://img.shields.io/npm/l/fs-animation.svg)](https://github.com/wyvernnot/fs-animation/blob/master/LICENSE)
+[![](https://img.shields.io/docker/pulls/wyvernnot/fs-animation.svg)](https://hub.docker.com/r/wyvernnot/fs-animation/)
 
 Realtime file system change animation which can also be played back. Built on [Immutable.JS](https://github.com/facebook/immutable-js/)
 
