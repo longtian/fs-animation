@@ -28,7 +28,8 @@ var wss = new WebSocketServer({
 });
 var watcher = chokidar.watch(options._, {
   ignored: options.ignore,
-  ignoreInitial: options.ignoreInitial
+  ignoreInitial: options.ignoreInitial,
+  alwaysStat: true
 });
 var history = new History(watcher);
 
